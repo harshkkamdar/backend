@@ -1,4 +1,4 @@
-/* const express = require('express');
+const express = require('express');
 const app = express();
 const mongoose = require('./database/mongoose');
 const Email = require('./database/models/newsletter');
@@ -16,7 +16,7 @@ app.use(cors({
 {
     //Get All item
     app.get('/form', (req, res) => {
-        Form.find({})
+        return Form.find({})
             .then(user => res.send(user))
             .catch((err) => console.log(err))
     });
@@ -61,8 +61,8 @@ app.listen(process.env.port || 3000, function () {
     console.log('now listening for requests');
 });
 
- */
-// Import packages
+
+/* // Import packages
 const express = require("express");
 const home = require("./routes/home");
 
@@ -75,4 +75,4 @@ app.use("/home", home);
 
 // connection
 const port = process.env.PORT || 9001;
-app.listen(port, () => console.log(`Listening to port ${port}`));
+app.listen(port, () => console.log(`Listening to port ${port}`)); */

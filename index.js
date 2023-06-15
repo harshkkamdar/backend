@@ -27,7 +27,7 @@ app.use(cors({
         (new Form({
             'name': req.body.name,
             'mobile': req.body.mobile,
-            'email': req.body.Img_src2,
+            'email': req.body.email,
             'student_age': req.body.student_age,
             'student_name': req.body.student_name,
         }))

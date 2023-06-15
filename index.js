@@ -38,21 +38,21 @@ app.use(cors({
 
     //Get 1 item
     app.get('/form/:item_name', (req, res) => {
-        Form.find({ item_name: req.params.item_name })
+        Form.find({ item_name: req.params.name })
             .then(user => res.send(user))
             .catch((err) => console.log(err))
     });
 
     //Updating form
-    app.patch('/form/:item_name', (req, res) => {
-        Form.findOneAndUpdate({ 'item_name': req.params.item_name }, { $set: req.body })
+    app.patch('/form/:name', (req, res) => {
+        Form.findOneAndUpdate({ 'name': req.params.name }, { $set: req.body })
             .then(user => res.send(user))
             .catch((err) => console.log(err))
     });
 
     //delete item
-    app.delete('/form/:item_name', (req, res) => {
-        Form.findOneAndDelete({ 'item_name': req.params.item_name })
+    app.delete('/form/:name', (req, res) => {
+        Form.findOneAndDelete({ 'name': req.params.name })
             .then(user => res.send(user))
             .catch((err) => console.log(err))
     })

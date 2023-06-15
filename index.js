@@ -1,4 +1,4 @@
-const express = require('express');
+/* const express = require('express');
 const app = express();
 const mongoose = require('./database/mongoose');
 const Email = require('./database/models/newsletter');
@@ -61,3 +61,18 @@ app.listen(process.env.port || 3000, function () {
     console.log('now listening for requests');
 });
 
+ */
+// Import packages
+const express = require("express");
+const home = require("./routes/home");
+
+// Middlewares
+const app = express();
+app.use(express.json());
+
+// Routes
+app.use("/home", home);
+
+// connection
+const port = process.env.PORT || 9001;
+app.listen(port, () => console.log(`Listening to port ${port}`));

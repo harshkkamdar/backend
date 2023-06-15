@@ -16,10 +16,10 @@ app.use(cors({
 {
     //Get All item
     app.get('/form', (req, res) => {
-        res.send("TEST");
-/*         Form.find({})
+        //res.send("TEST");
+        Form.find({})
             .then(user => res.send(user))
-            .catch((err) => console.log(err)) */
+            .catch((err) => console.log(err))
     });
 
     //Add an item

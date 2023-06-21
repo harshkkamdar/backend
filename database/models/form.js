@@ -5,7 +5,7 @@ const FormSchema = new mongoose.Schema({
         type: String,
         trim: true,
     },
-    mobile: {
+    age: {
         type: String,
         trim: true,
     },
@@ -13,11 +13,15 @@ const FormSchema = new mongoose.Schema({
         type: String,
         trim: true,
     },
-    student_age: {
+    number: {
         type: String,
         trim: true,
     },
-    student_name: {
+    school_name: {
+        type: String,
+        trim: true,
+    },
+    grade: {
         type: String,
         trim: true,
     }

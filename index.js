@@ -26,10 +26,11 @@ app.use(cors({
     app.post('/form', (req, res) => {
         (new Form({
             'name': req.body.name,
-            'mobile': req.body.mobile,
+            'age': req.body.age,
             'email': req.body.email,
-            'student_age': req.body.student_age,
-            'student_name': req.body.student_name,
+            'number': req.body.number,
+            'school_name': req.body.school_name,
+            'grade': req.body.grade,
         }))
             .save()
             .then(user => res.send(user))

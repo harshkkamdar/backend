@@ -1,8 +1,7 @@
 const express = require('express');
 const app = express();
 const mongoose = require('./database/mongoose');
-const Email = require('./database/models/newsletter');
-const Form = require('./database/models/form');
+const Our = require('./database/models/Our_Data');
 const cors = require('cors');
 
 app.use(express.json());
@@ -12,25 +11,27 @@ app.use(cors({
     origin: '*'
 }));
 
-//form APIs
+//our APIs
 {
     //Get All item
-    app.get('/form', (req, res) => {
+    app.get('/our', (req, res) => {
         //res.send("TEST");
-        Form.find({})
+        Our.find({})
             .then(user => res.send(user))
             .catch((err) => console.log(err))
     });
 
     //Add an item
-    app.post('/form', (req, res) => {
-        (new Form({
-            'name': req.body.name,
-            'age': req.body.age,
-            'email': req.body.email,
-            'number': req.body.number,
-            'school_name': req.body.school_name,
-            'grade': req.body.grade,
+    app.post('/our', (req, res) => {
+        (new Our({
+            'SrNo': req.body.SrNo,
+            'Item_Name': req.body.Item_Name,
+            'Drug_Name': req.body.Drug_Name,
+            'Manufacturer': req.body.Manufacturer,
+            'UOM': req.body.UOM,
+            'Unit_Price': req.body.Unit_Price,
+            'MRP': req.body.MRP,
+            'Order_Qty': req.body.Order_Qty,
         }))
             .save()
             .then(user => res.send(user))
@@ -38,22 +39,22 @@ app.use(cors({
     });
 
     //Get 1 item
-    app.get('/form/:item_name', (req, res) => {
-        Form.find({ item_name: req.params.name })
+    app.get('/our/:item_name', (req, res) => {
+        Our.find({ item_name: req.params.name })
             .then(user => res.send(user))
             .catch((err) => console.log(err))
     });
 
-    //Updating form
-    app.patch('/form/:name', (req, res) => {
-        Form.findOneAndUpdate({ 'name': req.params.name }, { $set: req.body })
+    //Updating our
+    app.patch('/our/:name', (req, res) => {
+        Our.findOneAndUpdate({ 'name': req.params.name }, { $set: req.body })
             .then(user => res.send(user))
             .catch((err) => console.log(err))
     });
 
     //delete item
-    app.delete('/form/:name', (req, res) => {
-        Form.findOneAndDelete({ 'name': req.params.name })
+    app.delete('/our/:name', (req, res) => {
+        Our.findOneAndDelete({ 'name': req.params.name })
             .then(user => res.send(user))
             .catch((err) => console.log(err))
     })
